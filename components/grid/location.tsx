@@ -8,7 +8,7 @@ import Map, { MapRef } from 'react-map-gl';
 import Card from '../ui/card';
 
 const MAX_ZOOM = 8
-const MIN_ZOOM = 4
+const MIN_ZOOM = 2
 const INITIAL_VIEW_STATE = {
     latitude: 9.923035879986871,
     longitude: -84.14731807223858,
@@ -49,7 +49,7 @@ const Location = memo(function Location() {
 
     const mapStyle = useMemo(
         () =>
-            `mapbox://styles/mapbox/${theme === 'dark' ? 'dark-v11' : 'streets-v12'}`,
+            `mapbox://styles/mapbox/${theme === 'dark' ? 'dark-v11' : 'light-v11'}`,
         [theme]
     );
 
