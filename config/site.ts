@@ -1,5 +1,5 @@
 export const siteConfig = {
     title: 'JosePabloSG',
-    description: 'Mi meta es ser ingeniero de software en Costa Rica',
+    description: 'My goal is to be a frontend developer ',
     url: 'https://www.josepablosg.dev/',
 };
