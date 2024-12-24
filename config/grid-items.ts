@@ -11,6 +11,7 @@ export const gridItems: GridItem[] = [
     { i: 'cv', component: GridComponents.Cv },
     { i: 'description', component: GridComponents.Description },
     { i: 'github', component: GridComponents.Github },
+    { i: 'linkedin', component: GridComponents.LinkedIn },
     { i: 'location', component: GridComponents.Location },
     { i: 'project-1', component: GridComponents.FirstProject },
     { i: 'project-2', component: GridComponents.SecondProject },
