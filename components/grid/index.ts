@@ -7,3 +7,4 @@ export { default as Location } from './location';
 export { default as Spotify } from './spotify';
 export { default as Theme } from './theme';
 export {default as FirstProject} from './first-project';
+export {default as SecondProject} from './second-project';

@@ -6,7 +6,7 @@ export default function FirstProject() {
         <Project
             projectName='Landing Page'
             projectImage={projectImage}
-            backgroundColor=''
+            backgroundColor='bg-green-100'
         />
     );
 }
