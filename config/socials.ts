@@ -30,7 +30,7 @@ const socials: Social[] = [
     },
     {
         name: 'LinkedIn',
-        url: 'https://www.linkedin.com/in/jos%C3%A9-pablo-su%C3%A1rez-262767198/',
+        url: 'https://www.linkedin.com/in/JosePabloSG',
         icon: FaLinkedinIn
     }
 ];
