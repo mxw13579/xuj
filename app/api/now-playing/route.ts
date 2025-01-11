@@ -19,8 +19,13 @@ interface SpotifyApi {
     items?: Array<{ track: SpotifyTrack }>;
 }
 
-const SPOTIFY_CLIENT_ID = process.env.SPOTIFY_CLIENT_ID;
-const SPOTIFY_CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET;
+// 修改歌曲
+// const SPOTIFY_CLIENT_ID = process.env.SPOTIFY_CLIENT_ID;
+// const SPOTIFY_CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET;
+// const SPOTIFY_REFRESH_TOKEN = process.env.SPOTIFY_REFRESH_TOKEN ?? '';
+
+const SPOTIFY_CLIENT_ID = '60f8a3769da4416382d7908a79365ddd';
+const SPOTIFY_CLIENT_SECRET = '01eacd54677d40e990ba5364c307cf86';
 const SPOTIFY_REFRESH_TOKEN = process.env.SPOTIFY_REFRESH_TOKEN ?? '';
 const SPOTIFY_TOKEN_URL = 'https://accounts.spotify.com/api/token';
 const SPOTIFY_NOW_PLAYING_URL =
@@ -34,6 +39,7 @@ const getBasicToken = () =>
     );
 
 const getAccessToken = async (): Promise<string> => {
+
     const response = await fetch(SPOTIFY_TOKEN_URL, {
         method: 'POST',
         headers: {
@@ -45,6 +51,9 @@ const getAccessToken = async (): Promise<string> => {
             refresh_token: SPOTIFY_REFRESH_TOKEN,
         }).toString(),
     });
+
+    //输出响应
+    console.log('getAccessToken Response:', response);
 
     const data = await response.json();
     return data.access_token;
@@ -95,6 +104,8 @@ export async function GET() {
         return NextResponse.json(formatResponse(data));
     } catch (error) {
         const accessToken = await getAccessToken();
+        //输出错误信息
+        console.error('Error fetching Spotify data:', error);
         const data = await fetchSpotifyData(
             SPOTIFY_RECENTLY_PLAYED_URL,
             accessToken
