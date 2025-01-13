@@ -5,18 +5,19 @@ import Card from '../ui/card';
 
 export default function Description() {
     return (
-        <Card className='flex flex-col justify-center gap-4 p-8'>
+        // <Card className='flex flex-col justify-center gap-4 p-8'>
+        <Card className='flex flex-col justify-between gap-4 p-8'>
             <div className='relative size-25 overflow-hidden rounded-full sm:size-20'>
                 <Image
                     src={avatar}
-                    alt='JosePabloSG'
+                    alt='xujing avatar'
                     fill
                     sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
                     placeholder='blur'
                     priority
                 />
             </div>
-            <p className='leading-relaxed' >
+            <p className='leading-relaxed flex-col justify-end' >
                 <span
                     style={{
                         background: 'linear-gradient(90deg, #FEAC62, #FDE679, #FEB4EE)',

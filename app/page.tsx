@@ -10,7 +10,7 @@ export default function Home() {
                 as='header'
                 className='flex items-center justify-between py-0'>
                 <h1 className='hidden'>
-                    JosePabloSG
+                    xujing's blog
                 </h1>
             </Container>
             <main className='py-8'>

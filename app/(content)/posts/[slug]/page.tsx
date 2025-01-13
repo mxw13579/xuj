@@ -29,7 +29,7 @@ export const generateMetadata = async ({ params }: { params: Params }) => {
             type: 'article',
             publishedTime: date,
             url: `${siteConfig.url}/posts/${post.slug}`,
-            authors: 'JosePablo',
+            authors: 'xujing article',
         },
         twitter: {
             title,

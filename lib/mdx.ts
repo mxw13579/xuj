@@ -10,6 +10,11 @@ interface PostMetadata extends BaseMetadata {
     date: string;
 }
 
+interface EmailPostMetadata extends PostMetadata {
+    email: string;
+    remark: string;
+}
+
 interface ProjectMetadata extends BaseMetadata {
     links: string;
     images?: string;
@@ -68,10 +73,12 @@ function getMDXData<T extends BaseMetadata>(dir: string): MDXData<T>[] {
         });
 }
 
-export const getAllPosts = (): MDXData<PostMetadata>[] =>
-    getMDXData<PostMetadata>(path.join(process.cwd(), 'content/posts'));
+export const getAllPosts = (): MDXData<EmailPostMetadata>[] =>
+    getMDXData<EmailPostMetadata>(path.join(process.cwd(), 'content/posts'));
 
 export const getLatestPost = (): MDXData<PostMetadata> => getAllPosts()[0];
+
+export const getEmailLatestPost = (): MDXData<EmailPostMetadata> => getAllPosts()[0];
 
 export const getAllProjects = (): MDXData<ProjectMetadata>[] =>
     getMDXData<ProjectMetadata>(path.join(process.cwd(), 'content/projects'));
