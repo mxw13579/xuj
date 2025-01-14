@@ -1,8 +1,5 @@
 import laifen from '@/public/images/laifenChristmas.png';
-import Image from 'next/image';
-import Card from '../ui/card';
 import Project from '@/components/project';
-import projectImage from '@/public/projects/hhrr.png';
 
 
 export default function LaifenChristmas() {
@@ -21,6 +18,6 @@ export default function LaifenChristmas() {
     //         </div>
     //     </Card>
     // );
-    return <Project projectName='Human Resources Management' projectImage={laifen}  />;
+    return <Project projectName="Human Resources Management" projectImage={laifen} backgroundColor="" />;
 
 }
