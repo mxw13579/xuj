@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import laifen from '@/public/images/laifenChristmas.png';
 import Project from '@/components/project';
 
