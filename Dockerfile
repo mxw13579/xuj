@@ -16,6 +16,9 @@ COPY . .
 # 构建项目
 RUN npm run build
 
+# 调试：列出 /app 目录下的文件
+RUN ls -la /app
+
 # 运行阶段
 FROM node:22.12.0-alpine
 
