@@ -15,6 +15,8 @@ COPY --from=build /app/.next ./next
 COPY package*.json ./
 RUN npm install --production && npm cache clean --force
 
+# 安装 serve 包
+RUN npm install -g serve
 
 EXPOSE 3000
 CMD ["serve", "-s", "next", "-l", "3000"]
