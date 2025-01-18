@@ -16,8 +16,6 @@ COPY . .
 # 构建项目
 RUN npm run build
 
-# 调试：列出 /app 目录下的文件
-RUN ls -la /app
 
 # 运行阶段
 FROM node:22.12.0-alpine
@@ -26,7 +24,7 @@ FROM node:22.12.0-alpine
 WORKDIR /app
 
 # 复制构建结果
-COPY --from=build /app/dist ./dist
+COPY --from=build /app/next ./next
 
 # 复制生产依赖
 COPY package*.json ./
@@ -36,4 +34,4 @@ RUN npm install --production
 EXPOSE 3000
 
 # 启动应用
-CMD ["node", "dist/app.js"]
+CMD ["node", "next/app.js"]
