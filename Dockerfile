@@ -5,7 +5,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install && npm cache clean --force
 COPY . .
-RUN npm run build && ls -la /app
+RUN npm run build
 
 # 第二阶段：运行阶段
 FROM node:22.12.0-alpine
@@ -13,10 +13,8 @@ FROM node:22.12.0-alpine
 WORKDIR /app
 COPY --from=build /app/.next ./next
 COPY package*.json ./
-RUN npm install --production && npm cache clean --force
-
-# 安装 serve 包
-RUN npm install -g serve
+RUN npm install --production && npm install next
+RUN npm cache clean --force
 
 EXPOSE 3000
-CMD ["serve", "-s", "next", "-l", "3000"]
+CMD ["npm", "run", "start"]
