@@ -11,7 +11,7 @@ RUN npm run build
 FROM node:22.12.0-alpine
 
 WORKDIR /app
-COPY --from=build /app/.next ./next
+COPY --from=build /app/.next ./.next
 COPY package*.json ./
 RUN npm install --production && npm install next
 RUN npm cache clean --force
