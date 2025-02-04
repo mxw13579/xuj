@@ -17,7 +17,7 @@ export const gridItems: GridItem[] = [
     { i: 'laifenFittings', component: GridComponents.laifenFittings },
     { i: 'laifenDunhuang', component: GridComponents.laifenDunhuang },
     { i: 'laifenMother', component: GridComponents.laifenMother },
-    { i: 'laifenTodo', component: GridComponents.laifenTodo },
+    { i: 'laifenAbs', component: GridComponents.laifenAbs },
     { i: 'article', component: GridComponents.Article },
     { i: 'contact', component: GridComponents.Contact },
 

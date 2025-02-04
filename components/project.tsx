@@ -4,15 +4,20 @@ import { FaArrowRight } from 'react-icons/fa6';
 import Anchor from './ui/anchor';
 import Card from './ui/card';
 
+// 展示页面
 export default function Project({
+    //展示名称
+    showName,
     projectName,
     projectImage,
     backgroundColor,
 }: Readonly<{
     projectName: string;
+    showName?: string;
     projectImage: string | StaticImageData;
     backgroundColor: string;
 }>) {
+    showName = showName ?? projectName;
     return (
         <Card className={cn('group relative', backgroundColor)}>
             <Image
@@ -30,7 +35,7 @@ export default function Project({
                     href={`/projects/${toKebabCase(projectName)}`}
                     aria-label={projectName}>
                     <span className='hidden whitespace-nowrap opacity-0 transition-all duration-300 ease-in group-hover:translate-x-0 group-hover:opacity-100 md:inline'>
-                        {projectName}
+                            {showName}
                     </span>
                     <span>
                         <FaArrowRight className='-rotate-45 transition-transform duration-300 group-hover:rotate-0' />

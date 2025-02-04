@@ -17,7 +17,7 @@ RUN npm install --production && npm install next
 RUN npm cache clean --force
 
 # 将 node_modules/.bin 添加到 PATH
-ENV PATH /app/node_modules/.bin:$PATH
+ENV PATH /app/node_modules/.bin=$PATH
 
 EXPOSE 3000
 CMD ["npm", "run", "start"]
