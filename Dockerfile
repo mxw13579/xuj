@@ -12,6 +12,8 @@ FROM node:22.12.0-alpine
 
 WORKDIR /app
 COPY --from=build /app/.next ./.next
+#s复制 public 目录
+COPY --from=build /app/public ./public
 COPY package*.json ./
 RUN npm install --production && npm install next
 RUN npm cache clean --force
