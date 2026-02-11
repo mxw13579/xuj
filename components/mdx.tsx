@@ -38,12 +38,16 @@ function Anchor({ href, children, ...props }: Readonly<AnchorProps>) {
 }
 
 function RoundedImage({ ...props }) {
+    const isRemoteSrc =
+        typeof props.src === 'string' && /^https?:\/\//.test(props.src);
+
     return (
         <Image
+            {...props}
             src={props.src}
             alt={props.alt}
             className='rounded-lg'
-            {...props}
+            unoptimized={isRemoteSrc || props.unoptimized}
         />
     );
 }

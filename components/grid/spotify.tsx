@@ -65,6 +65,7 @@ function NowPlaying() {
                     width={56}
                     height={56}
                     sizes='56px'
+                    unoptimized
                     alt='Album Cover'
                     className='size-10 rounded-full object-cover sm:size-12 md:size-14'
                 />

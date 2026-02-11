@@ -116,8 +116,10 @@ const ProjectPage = async ({ params }: { params: Params }) => {
                     mdLayout={mdLayout}
                     smLayout={smLayout}
                     className='-mt-8 pb-16'>
-                    {projectImages.map(
-                        (image: { i: string; url: string }) => (
+                    {projectImages.map((image: { i: string; url: string }) => {
+                        const isRemoteImage = /^https?:\/\//.test(image.url);
+
+                        return (
                             <div key={image.i}>
                                 <Card className='relative'>
                                     <Image
@@ -127,11 +129,12 @@ const ProjectPage = async ({ params }: { params: Params }) => {
                                         objectFit='cover'
                                         quality={85}
                                         sizes='(max-width: 1200px) 100vw, 1200px'
+                                        unoptimized={isRemoteImage}
                                     />
                                 </Card>
                             </div>
-                        )
-                    )}
+                        );
+                    })}
                 </GridLayout>
             )}
 

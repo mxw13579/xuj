@@ -8,6 +8,12 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'studylzl.oss-cn-beijing.aliyuncs.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.scdn.co',
+        pathname: '/**',
       },
     ],
   },
