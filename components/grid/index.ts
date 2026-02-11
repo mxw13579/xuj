@@ -1,6 +1,8 @@
 export { default as Description } from './description';
 export { default as Spotify } from './spotify';
 export { default as Theme } from './theme';
+export { default as lbVt } from './lbVt';
+export { default as lbVtSe } from './lbVtSe';
 export { default as Laifen618 } from './laifen618';
 export { default as LaifenChristmas } from './laifenChristmas';
 export {default as laifen1111} from './laifen1111';

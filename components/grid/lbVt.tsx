@@ -1,4 +1,4 @@
-import laifen from '@/public/images/laifen618.png';
+import lbVtImage from '@/public/images/lbVt.png';
 import Image from 'next/image';
 import Card from '../ui/card';
 
@@ -8,7 +8,7 @@ export default function lbVt() {
         <Card className='flex flex-col justify-center gap-4 p-0'>
             <div className='relative w-full h-full'>
                 <Image
-                    src={lbVt}
+                    src={lbVtImage}
                     alt='lbVt'
                     fill
                     sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'

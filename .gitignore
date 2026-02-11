@@ -184,3 +184,6 @@ next-env.d.ts
 /.ai_state/todo.md
 /.idea/vcs.xml
 /.idea/xuj.iml
+/.ai_state/
+/.idea/
+/.spec-workflow/
