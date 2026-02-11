@@ -187,3 +187,4 @@ next-env.d.ts
 /.ai_state/
 /.idea/
 /.spec-workflow/
+.ace-tool/

@@ -2,8 +2,9 @@
 FROM node:22.12.0-alpine AS deps
 
 WORKDIR /app
-COPY package*.json ./
-RUN npm ci && npm cache clean --force
+COPY package.json package-lock.json* ./
+RUN if [ -f package-lock.json ]; then npm ci; else npm install --no-audit --no-fund; fi \
+    && npm cache clean --force
 
 # 生产依赖阶段：剔除 devDependencies，供 runner 使用
 FROM deps AS prod-deps
