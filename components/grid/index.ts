@@ -8,7 +8,7 @@ export {default as laifenSe} from './laifenSe';
 export {default as laifenFittings} from './laifenFittings';
 export {default as laifenDunhuang} from './laifenDunhuang';
 export { default as laifenMother } from './laifenMother';
-export {default as laifenTodo} from './laifenTodo';
+export {default as laifenAbs} from './laifenAbs';
 export { default as Article } from './article';
 export { default as Contact } from './contact';
 

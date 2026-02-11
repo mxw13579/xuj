@@ -1,17 +1,23 @@
 import { Layout } from 'react-grid-layout';
 
 export const lgLayout: Layout[] = [
-    { i: 'images-1', x: 0, y: 0, w: 2, h: 1 },
-    { i: 'images-2', x: 2, y: 0, w: 1, h: 1 },
-    { i: 'images-3', x: 3, y: 0, w: 1, h: 2 },
-    { i: 'images-4', x: 0, y: 1, w: 1, h: 1 },
-    { i: 'images-5', x: 1, y: 1, w: 2, h: 1 },
+    { i: 'laifen-christmas-long', x: 0, y: 0, w: 4, h: 16 },
+    { i: 'laifen-618-long', x: 0, y: 0, w: 4, h: 34 },
+    { i: 'laifen-1111-long', x: 0, y: 0, w: 4, h: 34 },
+    { i: 'laifen-abs-long', x: 0, y: 0, w: 4, h: 22 },
+    { i: 'laifen-fittings-long', x: 0, y: 0, w: 4, h: 14.8 },
+    { i: 'laifen-mother-long', x: 0, y: 0, w: 4, h: 22 },
+    { i: 'laifen-dunhuang-long', x: 0, y: 0, w: 4, h: 36 },
+    { i: 'laifen-se-long', x: 0, y: 0, w: 4, h: 28 },
 ];
 
 export const smLayout: Layout[] = [
-    { i: 'images-1', x: 0, y: 0, w: 2, h: 1 },
-    { i: 'images-2', x: 0, y: 1, w: 1, h: 1 },
-    { i: 'images-3', x: 1, y: 1, w: 1, h: 2 },
-    { i: 'images-4', x: 0, y: 2, w: 1, h: 1 },
-    { i: 'images-5', x: 2, y: 3, w: 2, h: 1 },
+    { i: 'laifen-christmas-long', x: 0, y: 0, w: 2, h: 8 },
+    { i: 'laifen-618-long', x: 0, y: 0, w: 2, h: 17 },
+    { i: 'laifen-1111-long', x: 0, y: 0, w: 2, h: 17 },
+    { i: 'laifen-abs-long', x: 0, y: 0, w: 2, h: 11 },
+    { i: 'laifen-fittings-long', x: 0, y: 0, w: 2, h: 7.4 },
+    { i: 'laifen-mother-long', x: 0, y: 0, w: 2, h: 11 },
+    { i: 'laifen-dunhuang-long', x: 0, y: 0, w: 2, h: 18 },
+    { i: 'laifen-se-long', x: 0, y: 0, w: 2, h: 14 },
 ];

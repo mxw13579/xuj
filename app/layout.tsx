@@ -7,6 +7,8 @@ import { ThemeProvider } from './providers';
 
 import './globals.css';
 
+
+
 export const metadata: Metadata = {
     title: {
         default: siteConfig.title,
@@ -44,21 +46,22 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-    children,
-}: Readonly<{ children: React.ReactNode }>) {
+                                       children,
+                                   }: Readonly<{ children: React.ReactNode }>) {
     return (
         <html lang='en' suppressHydrationWarning>
-            <body
-                className={cn(
-                    poppins.className,
-                    calistoga.variable,
-                    'bg-gray-100 antialiased dark:bg-dark-950'
-                )}>
-                <ThemeProvider attribute='class' enableSystem={false}>
-                    {children}
-                </ThemeProvider>
-                <Analytics />
-            </body>
+        <body
+            className={cn(
+                poppins.className,
+                calistoga.variable,
+                'bg-gray-100 antialiased dark:bg-dark-950'
+            )}>
+        <ThemeProvider attribute='class' enableSystem={false}>
+            {children}
+        </ThemeProvider>
+        <Analytics />
+        </body>
         </html>
     );
 }
+
