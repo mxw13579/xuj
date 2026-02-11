@@ -27,15 +27,14 @@ export default function Project({
                 sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
                 className='object-cover'
                 placeholder='blur'
-                priority
             />
             <div className='absolute bottom-3 left-3'>
                 <Anchor
-                    className='cancel-drag size-10 justify-end transition-all ease-in-out group-hover:w-full'
+                    className='cancel-drag h-11 gap-2 px-3 transition-all ease-in-out md:size-10 md:justify-end md:px-3 md:group-hover:w-full'
                     href={`/projects/${toKebabCase(projectName)}`}
                     aria-label={projectName}>
-                    <span className='hidden whitespace-nowrap opacity-0 transition-all duration-300 ease-in group-hover:translate-x-0 group-hover:opacity-100 md:inline'>
-                            {showName}
+                    <span className='whitespace-nowrap text-sm md:translate-x-2 md:opacity-0 md:transition-all md:duration-300 md:ease-in md:group-hover:translate-x-0 md:group-hover:opacity-100'>
+                        {showName}
                     </span>
                     <span>
                         <FaArrowRight className='-rotate-45 transition-transform duration-300 group-hover:rotate-0' />

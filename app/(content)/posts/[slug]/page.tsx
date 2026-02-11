@@ -66,6 +66,7 @@ const PostPage = async ({ params }: { params: Params }) => {
     return (
         <div className='mx-auto max-w-prose px-4 py-10'>
             <Script
+                id='post-jsonld'
                 type='application/ld+json'
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />

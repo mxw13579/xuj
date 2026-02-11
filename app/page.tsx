@@ -16,7 +16,7 @@ export default function Home() {
             <main className='py-8'>
                 <GridLayout
                     lgLayout={lgLayout}
-                    mdLayout={smLayout}
+                    mdLayout={mdLayout}
                     smLayout={smLayout}>
                     {gridItems.map((item) => (
                         <div key={item.i}>{<item.component />}</div>

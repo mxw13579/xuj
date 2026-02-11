@@ -19,7 +19,7 @@ export const lgLayout: Layout[] = [
     { i: 'laifenMother', x: 0, y: 6, w: 2, h: 1 },
     { i: 'LaifenChristmas', x: 3, y: 6, w: 2, h: 1 },
     { i: 'article', x: 0, y: 7, w: 2, h: 1 },
-    { i: 'contact', x: 2, y: 7, w: 2, h: 1 },
+    { i: 'contact', x: 2, y: 7, w: 2, h: 2 },
 
 
 
@@ -47,9 +47,9 @@ export const mdLayout: Layout[] = [
 ];
 
 export const smLayout: Layout[] = [
-    { i: 'description', x: 0, y: 0, w: 2, h: 1 },
-    { i: 'spotify', x: 0, y: 1, w: 1, h: 1 },
-    { i: 'theme', x: 1, y: 1, w: 1, h: 1 },
+    { i: 'description', x: 0, y: 0, w: 2, h: 2 },
+    { i: 'spotify', x: 0, y: 1, w: 2, h: 1},
+    { i: 'theme', x: 1, y: 1, w: 2, h: 1 },
 
     { i: 'lbVt', x: 0, y: 2, w: 2, h: 1 },
     { i: 'lbVtSe', x: 0, y: 3, w: 2, h: 1 },
@@ -63,6 +63,6 @@ export const smLayout: Layout[] = [
 
     { i: 'laifenMother', x: 0, y: 10, w: 2, h: 1 },
     { i: 'LaifenChristmas', x: 0, y: 11, w: 2, h: 1 },
-    { i: 'article', x: 0, y: 12, w: 2, h: 1 },
-    { i: 'contact', x: 0, y: 13, w: 2, h: 1 },
+    { i: 'article', x: 0, y: 12, w: 2, h: 2 },
+    { i: 'contact', x: 0, y: 13, w: 2, h: 2 },
 ];

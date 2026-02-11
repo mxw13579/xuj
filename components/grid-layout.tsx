@@ -34,7 +34,7 @@ export default function GridLayout({
         cols,
         isBounded: true,
         isResizable: false,
-        rowHeight: rowHeights[breakpoint],
+        rowHeight: rowHeights[breakpoint] ?? rowHeights.sm,
         useCSSTransforms: false,
         measureBeforeMount: true,
         draggableCancel: '.cancel-drag',
@@ -45,7 +45,7 @@ export default function GridLayout({
     return (
         <section
             className={cn(
-                'mx-auto max-w-[1200px] max-lg:max-w-[800px] max-md:max-w-[375px] max-sm:max-w-[320px]',
+                'mx-auto w-full max-w-[1200px]',
                 isMounted
                     ? 'translate-y-0 opacity-100'
                     : '-translate-y-6 opacity-0',

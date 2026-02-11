@@ -19,13 +19,8 @@ interface SpotifyApi {
     items?: Array<{ track: SpotifyTrack }>;
 }
 
-// 修改歌曲
-// const SPOTIFY_CLIENT_ID = process.env.SPOTIFY_CLIENT_ID;
-// const SPOTIFY_CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET;
-// const SPOTIFY_REFRESH_TOKEN = process.env.SPOTIFY_REFRESH_TOKEN ?? '';
-
-const SPOTIFY_CLIENT_ID = '60f8a3769da4416382d7908a79365ddd';
-const SPOTIFY_CLIENT_SECRET = '01eacd54677d40e990ba5364c307cf86';
+const SPOTIFY_CLIENT_ID = process.env.SPOTIFY_CLIENT_ID ?? '';
+const SPOTIFY_CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET ?? '';
 const SPOTIFY_REFRESH_TOKEN = process.env.SPOTIFY_REFRESH_TOKEN ?? '';
 const SPOTIFY_TOKEN_URL = 'https://accounts.spotify.com/api/token';
 const SPOTIFY_NOW_PLAYING_URL =
@@ -33,13 +28,15 @@ const SPOTIFY_NOW_PLAYING_URL =
 const SPOTIFY_RECENTLY_PLAYED_URL =
     'https://api.spotify.com/v1/me/player/recently-played?limit=1';
 
+const hasSpotifyConfig = () =>
+    Boolean(SPOTIFY_CLIENT_ID && SPOTIFY_CLIENT_SECRET && SPOTIFY_REFRESH_TOKEN);
+
 const getBasicToken = () =>
     Buffer.from(`${SPOTIFY_CLIENT_ID}:${SPOTIFY_CLIENT_SECRET}`).toString(
         'base64'
     );
 
 const getAccessToken = async (): Promise<string> => {
-
     const response = await fetch(SPOTIFY_TOKEN_URL, {
         method: 'POST',
         headers: {
@@ -52,10 +49,15 @@ const getAccessToken = async (): Promise<string> => {
         }).toString(),
     });
 
-    //输出响应
-    console.log('getAccessToken Response:', response);
+    if (!response.ok) {
+        throw new Error('Failed to fetch Spotify access token');
+    }
 
     const data = await response.json();
+    if (!data.access_token) {
+        throw new Error('Spotify access token is missing in response');
+    }
+
     return data.access_token;
 };
 
@@ -90,6 +92,13 @@ const formatResponse = (data: SpotifyApi) => {
 };
 
 export async function GET() {
+    if (!hasSpotifyConfig()) {
+        return NextResponse.json(
+            { error: 'Missing Spotify environment variables' },
+            { status: 503 }
+        );
+    }
+
     try {
         const accessToken = await getAccessToken();
         let data = await fetchSpotifyData(SPOTIFY_NOW_PLAYING_URL, accessToken);
@@ -103,14 +112,10 @@ export async function GET() {
 
         return NextResponse.json(formatResponse(data));
     } catch (error) {
-        const accessToken = await getAccessToken();
-        //输出错误信息
         console.error('Error fetching Spotify data:', error);
-        const data = await fetchSpotifyData(
-            SPOTIFY_RECENTLY_PLAYED_URL,
-            accessToken
+        return NextResponse.json(
+            { error: 'Failed to fetch Spotify data' },
+            { status: 502 }
         );
-
-        return NextResponse.json(formatResponse(data));
     }
 }

@@ -14,8 +14,7 @@ export default function Container<T extends React.ElementType = 'div'>({
         <Component
             {...props}
             className={cn(
-                'mx-auto px-4 py-6',
-                'max-w-[1200px] max-lg:max-w-[800px] max-md:max-w-[375px] max-sm:max-w-[320px]',
+                'mx-auto w-full max-w-[1200px] px-4 py-6',
                 props.className
             )}
         />

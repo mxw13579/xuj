@@ -2,7 +2,7 @@
 
 import { cn } from '@/lib/utils';
 import { useTheme } from 'next-themes';
-import { memo, useCallback, useMemo, useRef, useState } from 'react';
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { FaMinus, FaPlus } from 'react-icons/fa6';
 import Map, { MapRef } from 'react-map-gl';
 import Card from '../ui/card';
@@ -24,6 +24,7 @@ const Location = memo(function Location() {
     const [isMapLoaded, setIsMapLoaded] = useState(false);
 
     const mapRef = useRef<MapRef>(null);
+    const zoomCooldownRef = useRef<number | null>(null);
 
     const { theme } = useTheme();
 
@@ -38,13 +39,29 @@ const Location = memo(function Location() {
                         ? mapRef.current?.zoomIn()
                         : mapRef.current?.zoomOut();
                     setIsButtonDisabled(true);
-                    setTimeout(() => setIsButtonDisabled(false), 300);
+                    if (zoomCooldownRef.current) {
+                        window.clearTimeout(zoomCooldownRef.current);
+                    }
+
+                    zoomCooldownRef.current = window.setTimeout(() => {
+                        setIsButtonDisabled(false);
+                        zoomCooldownRef.current = null;
+                    }, 300);
                     return newZoom;
                 }
                 return prevZoom;
             });
         },
         [isButtonDisabled]
+    );
+
+    useEffect(
+        () => () => {
+            if (zoomCooldownRef.current) {
+                window.clearTimeout(zoomCooldownRef.current);
+            }
+        },
+        []
     );
 
     const mapStyle = useMemo(

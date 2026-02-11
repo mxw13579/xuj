@@ -19,12 +19,11 @@ export default function Description() {
             </div>
             <p className='leading-relaxed flex-col justify-end' >
                 <span
+                    className='text-xl font-bold sm:text-2xl'
                     style={{
                         background: 'linear-gradient(90deg, #FEAC62, #FDE679, #FEB4EE)',
                         WebkitBackgroundClip: 'text',
                         WebkitTextFillColor: 'transparent',
-                        fontSize: '24px',
-                        fontWeight: 'bold',
                     }}
                 >
                 调味果子</span>
