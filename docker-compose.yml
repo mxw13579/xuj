@@ -1,0 +1,12 @@
+services:
+  web:
+    build:
+      context: .
+      args:
+        NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN: ${NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN}
+    ports:
+      - "3000:3000"
+    environment:
+      SPOTIFY_REFRESH_TOKEN: ${SPOTIFY_REFRESH_TOKEN}
+    restart: unless-stopped
+

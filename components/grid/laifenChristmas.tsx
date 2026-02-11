@@ -21,6 +21,6 @@ export default function LaifenChristmas() {
     //         </div>
     //     </Card>
     // );
-    return <Project projectName='Human Resources Management' projectImage={laifen}  />;
+    return <Project projectName='Human Resources Management' projectImage={laifen} backgroundColor='' />;
 
 }

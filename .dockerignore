@@ -1,0 +1,25 @@
+# dependencies
+node_modules
+
+# next.js build output
+.next
+out
+build
+
+# local env files
+.env
+.env.*
+!.env.example
+
+# git
+.git
+
+# IDE / OS
+.idea
+.vscode
+.DS_Store
+
+# internal state
+.ai_state
+.spec-workflow
+
