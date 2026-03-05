@@ -30,10 +30,10 @@ export default function Project({
             />
             <div className='absolute bottom-3 left-3'>
                 <Anchor
-                    className='cancel-drag h-11 gap-2 px-3 transition-all ease-in-out md:size-10 md:justify-end md:px-3 md:group-hover:w-full'
+                    className='cancel-drag size-10 justify-center p-0 transition-all ease-in-out md:justify-end md:px-3 md:group-hover:w-full'
                     href={`/projects/${toKebabCase(projectName)}`}
                     aria-label={projectName}>
-                    <span className='whitespace-nowrap text-sm md:translate-x-2 md:opacity-0 md:transition-all md:duration-300 md:ease-in md:group-hover:translate-x-0 md:group-hover:opacity-100'>
+                    <span className='hidden whitespace-nowrap text-sm md:inline md:translate-x-2 md:opacity-0 md:transition-all md:duration-300 md:ease-in md:group-hover:translate-x-0 md:group-hover:opacity-100'>
                         {showName}
                     </span>
                     <span>
