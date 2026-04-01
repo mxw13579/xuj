@@ -111,31 +111,53 @@ const ProjectPage = async ({ params }: { params: Params }) => {
             </Container>
 
             {projectImages.length > 0 && (
-                <GridLayout
-                    lgLayout={lgLayout}
-                    mdLayout={mdLayout}
-                    smLayout={smLayout}
-                    className='-mt-8 pb-16'>
-                    {projectImages.map((image: { i: string; url: string }) => {
-                        const isRemoteImage = /^https?:\/\//.test(image.url);
+                <>
+                    <section className='mx-auto -mt-8 w-full max-w-[1200px] px-4 pb-16 md:hidden'>
+                        <div className='space-y-4'>
+                            {projectImages.map((image: { i: string; url: string }) => (
+                                <div key={image.i}>
+                                    <Card>
+                                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                                        <img
+                                            src={image.url}
+                                            alt={project.metadata.title}
+                                            loading='lazy'
+                                            decoding='async'
+                                            className='block h-auto w-full'
+                                        />
+                                    </Card>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+                    <div className='hidden md:block'>
+                        <GridLayout
+                            lgLayout={lgLayout}
+                            mdLayout={mdLayout}
+                            smLayout={smLayout}
+                            className='-mt-8 pb-16'>
+                            {projectImages.map((image: { i: string; url: string }) => {
+                                const isRemoteImage = /^https?:\/\//.test(image.url);
 
-                        return (
-                            <div key={image.i}>
-                                <Card className='relative'>
-                                    <Image
-                                        src={image.url}
-                                        alt={project.metadata.title}
-                                        fill
-                                        objectFit='cover'
-                                        quality={85}
-                                        sizes='(max-width: 1200px) 100vw, 1200px'
-                                        unoptimized={isRemoteImage}
-                                    />
-                                </Card>
-                            </div>
-                        );
-                    })}
-                </GridLayout>
+                                return (
+                                    <div key={image.i}>
+                                        <Card className='relative'>
+                                            <Image
+                                                src={image.url}
+                                                alt={project.metadata.title}
+                                                fill
+                                                objectFit='cover'
+                                                quality={85}
+                                                sizes='(max-width: 1200px) 100vw, 1200px'
+                                                unoptimized={isRemoteImage}
+                                            />
+                                        </Card>
+                                    </div>
+                                );
+                            })}
+                        </GridLayout>
+                    </div>
+                </>
             )}
 
             <Container className='py-8'>
